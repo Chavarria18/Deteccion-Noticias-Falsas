@@ -37,6 +37,7 @@ labels = df.Category
 x_train,x_test,y_train,y_test=train_test_split(df['Text'].values.astype('str'), labels, test_size=0.10,train_size=0.90, random_state=0)
 
 ###Quitar las stopwords 
+nltk.download('stopwords')
 tfidf_vectorizer = TfidfVectorizer(stop_words=stopwords.words("spanish"), max_df=0.7)
 
 ###se transforma en un conjutno de entrenamiento y pruebas
