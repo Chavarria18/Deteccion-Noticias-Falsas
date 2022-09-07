@@ -73,13 +73,20 @@ def machine_analysis(cuerpo):
     texto = [cuerpo]
     texto2 = tfidf_vectorizer.transform(texto)
 
-    st.write("Resultados de los clasificadores")
-    st.write("SVM")
-    st.write(svmclasf.predict_proba(texto2))
-    st.write(svmclasf.classes_)
+    st.title("Resultados de los clasificadores")
+    st.write("Probabilidades %: ")
+    st.write("**Support Vector Machine**") 
+    col1, col2 = st.columns(2)
+    col1.metric("Falsa", str( round( svmclasf.predict_proba(texto2)[:,0][0] ,2)*100) +"%")
+    col2.metric("verdadera",  str( round(svmclasf.predict_proba(texto2)[:,1][0] ,2)*100) +"%")  
+    
 
-    st.write(svmclasf.predict(texto2))
-    st.write("PAC")
+
+    #st.write(svmclasf.classes_)
+    #st.write(svmclasf.predict_proba(texto2))
+
+    #st.write(svmclasf.predict(texto2))
+
     ##st.write(pa_classifier.predict_proba(texto2))
     # 
     def predict_proba_PA(X):      
@@ -95,13 +102,20 @@ def machine_analysis(cuerpo):
             prob /= prob.sum(axis=1).reshape((prob.shape[0], -1))
             return prob    
 
+    st.write("**Passive Aggresive**")
+    col1, col2 = st.columns(2)
+    col1.metric("Falsa", str( round(predict_proba_PA(texto2)[:,0][0],2)*100) +"%")
+    col2.metric("verdadera", str( round(predict_proba_PA(texto2)[:,1][0],2)*100) +"%")
+    
+    
+    
+    st.write("**Random Forest**")
+    col1, col2 = st.columns(2)
+    col1.metric("Falsa", str( round(randomforest.predict_proba(texto2)[:,0][0],2)*100) +"%")
+    col2.metric("verdadera", str( round(randomforest.predict_proba(texto2)[:,1][0],2)*100) +"%")
    
-    st.write(predict_proba_PA(texto2))
-    st.write(pa_classifier.predict(texto2))
-    st.write("RF")
-    st.write(randomforest.predict_proba(texto2))
 
-    st.write(randomforest.predict(texto2))
+    #st.write(randomforest.predict(texto2))
 
     
 

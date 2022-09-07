@@ -5,9 +5,12 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 from textblob import TextBlob
 from autocorrect import Speller
 
+from apps.nlpCode.conteos import conteo
+
 
 from .nlpCode.sentiment_analysis import sentiment
 from .nlpCode.machine_model import machine_analysis
+from .nlpCode.conteos import conteo
 
 def app():
     st.title('Inicio')
@@ -16,9 +19,9 @@ def app():
     buton = st.button('ANALIZAR')
 
     if buton:
-        machine_analysis(cuerpo)
-
-    ###sentiment(cuerpo,titulo)
+        ##machine_analysis(cuerpo)
+        ##sentiment(cuerpo,titulo)
+        conteo(titulo,cuerpo)
   
 
     
