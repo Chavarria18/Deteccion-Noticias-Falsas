@@ -16,6 +16,8 @@ from nltk.corpus import stopwords
 import matplotlib.pyplot as plt
 from streamlit_metrics import metric, metric_row
 import altair as alt
+import seaborn as sn
+from sklearn.metrics import plot_confusion_matrix
 def app():
     ###Pagina web 
     st.title('Detección de noticias falsas')
@@ -24,7 +26,7 @@ def app():
     
 
     ####Modelo 
-    df= pd.read_csv('./train.csv',sep=';')
+    df= pd.read_csv('./data-final.csv',sep=';',encoding= 'unicode_escape')
     print(df.shape)
     st.write(df) 
     st.write('Shape of dataset:', df.shape)
@@ -39,7 +41,7 @@ def app():
     labels = df.Category
 
     ###dividir el conjunto de datos en dos sets uno para entrenamiento y otro para probar/test
-    x_train,x_test,y_train,y_test=train_test_split(df['Text'].values.astype('str'), labels, test_size=0.10,train_size=0.90, random_state=0)
+    x_train,x_test,y_train,y_test=train_test_split(df['Text'].values.astype('str'), labels, test_size=0.27884615384,train_size=0.72115384615, random_state=0)
 
     ###Quitar las stopwords 
     ###nltk.download('stopwords')
@@ -92,7 +94,15 @@ def app():
        
         clf_rep = classification_report(y_test, y_pred,output_dict = True)
         clf_rep_df = pd.DataFrame(clf_rep)
-        st.write(clf_rep_df.T)
+        st.write(clf_rep_df.T)    
+
+        clf_matrix = confusion_matrix(y_test, y_pred)
+        clf_matrix_df = pd.DataFrame(clf_matrix)
+        st.write(clf_matrix_df.T)    
+
+   
+      
+
     if classifier_name == 'Random Forest':
         st.metric("Accuracy", str( round(score2,2)*100) +"%") 
 
@@ -100,12 +110,19 @@ def app():
         clf_rep = classification_report(y_test, y_pred2,output_dict = True)
         clf_rep_df = pd.DataFrame(clf_rep)
         st.write(clf_rep_df.T)
+
+        clf_matrix = confusion_matrix(y_test, y_pred2)
+        clf_matrix_df = pd.DataFrame(clf_matrix)
+        st.write(clf_matrix_df.T)  
     if classifier_name == 'SVM':
         st.metric("Accuracy", str( round(score3,2)*100) +"%")                  
 
-        clf_rep = classification_report(y_test, y_pred2,output_dict = True)
+        clf_rep = classification_report(y_test, y_pred3,output_dict = True)
         clf_rep_df = pd.DataFrame(clf_rep)
         st.write(clf_rep_df.T)
+        clf_matrix = confusion_matrix(y_test, y_pred3)
+        clf_matrix_df = pd.DataFrame(clf_matrix)
+        st.write(clf_matrix_df.T)  
   
     st.write("Comparación resultados desempeño algoritmos")
     

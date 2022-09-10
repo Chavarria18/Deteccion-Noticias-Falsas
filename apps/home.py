@@ -11,6 +11,7 @@ from apps.nlpCode.conteos import conteo
 from .nlpCode.sentiment_analysis import sentiment
 from .nlpCode.machine_model import machine_analysis
 from .nlpCode.conteos import conteo
+from .nlpCode.topic_modeling import tema
 
 def app():
     st.title('Inicio')
@@ -21,7 +22,8 @@ def app():
     if buton:
         ##machine_analysis(cuerpo)
         ##sentiment(cuerpo,titulo)
-        conteo(titulo,cuerpo)
+        ##conteo(titulo,cuerpo)
+        tema(titulo,cuerpo)
   
 
     

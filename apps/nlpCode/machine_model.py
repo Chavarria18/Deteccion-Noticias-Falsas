@@ -19,7 +19,7 @@ from streamlit_metrics import metric, metric_row
 import altair as alt
 def machine_analysis(cuerpo):
    
-    df= pd.read_csv('./train.csv',sep=';')
+    df= pd.read_csv('./data-final.csv',sep=';',encoding= 'unicode_escape')
     print(df.shape)  
 
 
@@ -32,7 +32,7 @@ def machine_analysis(cuerpo):
     labels = df.Category
 
     ###dividir el conjunto de datos en dos sets uno para entrenamiento y otro para probar/test
-    x_train,x_test,y_train,y_test=train_test_split(df['Text'].values.astype('str'), labels, test_size=0.10,train_size=0.90, random_state=0)
+    x_train,x_test,y_train,y_test=train_test_split(df['Text'].values.astype('str'), labels, test_size=0.20,train_size=0.80, random_state=0)
 
     ###Quitar las stopwords 
     ###nltk.download('stopwords')

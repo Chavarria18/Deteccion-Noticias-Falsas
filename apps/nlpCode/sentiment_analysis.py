@@ -48,8 +48,8 @@ def sentiment(cuerpo,titulo):
         st.write("El analisis del sentimiento para el contenido  fue:")
         col1, col2 = st.columns(2)
        
-        col1.metric("Polaridad", str( round(analysis.sentiment[0], 2)*100) +"%")
-        col2.metric("Subjetividad",  str( round(analysis.sentiment[1] ,2)*100) +"%")  
+        col1.metric("Polaridad", str( round(analysis.sentiment[0],2)))
+        col2.metric("Subjetividad",  str( round(analysis.sentiment[1] ,2)))
         col1, col2,col3 = st.columns(3)
         st.write("El analisis del sentimiento para el contenido  fue:")
         col1.metric("% Negativo", str( round( (sia.polarity_scores(cuerpotraducido)['neg']*100), 2)) +"%")
