@@ -12,3 +12,5 @@ altair == 4.2.0
 sentiment_analysis_spanish == 0.0.25
 pyrae == 0.1.4
 st-annotated-text == 3.0.0
+streamlit_metrics == 0.1.0
+seaborn == 0.12.0

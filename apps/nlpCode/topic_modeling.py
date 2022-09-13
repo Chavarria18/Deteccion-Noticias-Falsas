@@ -1,8 +1,6 @@
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 from nltk.corpus import stopwords
-import random
-import spacy
 from sklearn.decomposition import LatentDirichletAllocation
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize import word_tokenize, sent_tokenize
@@ -14,8 +12,6 @@ import stanza
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import streamlit as st
-import pyLDAvis 
-import pyLDAvis.sklearn 
 import seaborn as sns
 import nltk
 def tema(titulo,cuerpo):
