@@ -14,7 +14,7 @@ La prensa inglesa también se ha hecho eco de un momento incómodo que se ha viv
 
 titulo = """
 
-Isabel II ya está en su despacho trabajando a pleno rendimiento tras recuperarse de su muerte
+
 """
 
 from nltk.tokenize import word_tokenize, sent_tokenize
