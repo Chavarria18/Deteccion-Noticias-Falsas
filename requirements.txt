@@ -10,3 +10,4 @@ autocorrect  == 2.6.1
 textblob == 0.17.1
 altair == 4.2.0
 sentiment_analysis_spanish == 0.0.25
+pyrae == 0.1.4
