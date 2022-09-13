@@ -9,7 +9,7 @@ from sentiment_analysis_spanish import sentiment_analysis as se
 from textblob import TextBlob
 from autocorrect import Speller 
 from annotated_text import annotated_text
-from pysentimiento import analyzer
+#from pysentimiento import analyzer
 
 
 
@@ -17,7 +17,7 @@ from pysentimiento import analyzer
 ###nltk.download('vader_lexicon')
 def sentiment(cuerpo,titulo):
     
-    analisador = analyzer.SentimentAnalyzer(lang='es')
+    #analisador = analyzer.SentimentAnalyzer(lang='es')
     analisador2 = se.SentimentAnalysisSpanish()
     sia = SentimentIntensityAnalyzer()
     blobcuerpo = TextBlob(cuerpo)
