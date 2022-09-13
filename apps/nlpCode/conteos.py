@@ -38,7 +38,7 @@ def conteo(titulo, cuerpo):
         if(x != spell(x)):
             resultado = dle.search_by_word(word=x).to_dict()
             if resultado['title'] == "Diccionario de la lengua española | Edición del Tricentenario | RAE - ASALE":
-                st.write(x+ "Puede contener una falta ortografica")
+                ###st.write(x+ "Puede contener una falta ortografica")
                 time.sleep(2)
                 contadorf +=1
         print(verificarpalabra(x))

@@ -20,13 +20,14 @@ import seaborn as sn
 from sklearn.metrics import plot_confusion_matrix
 def app():
     ###Pagina web 
-    st.title('Detección de noticias falsas')
+    st.title('Modelos de clasificación')
     st.write('Para el entrenamiento del clasificador se utilizo el siguiente dataset, obtuvido del [Github](https://github.com/jpposadas/FakeNewsCorpusSpanish) ')
    
     
 
     ####Modelo 
     df= pd.read_csv('./data-final.csv',sep=';',encoding= 'unicode_escape')
+    
     print(df.shape)
     st.write(df) 
     st.write('Shape of dataset:', df.shape)
@@ -95,7 +96,7 @@ def app():
         clf_rep = classification_report(y_test, y_pred,output_dict = True)
         clf_rep_df = pd.DataFrame(clf_rep)
         st.write(clf_rep_df.T)    
-
+        st.write("Matriz de confusion; 0 es Falsa y 1 es Verdadera")
         clf_matrix = confusion_matrix(y_test, y_pred)
         clf_matrix_df = pd.DataFrame(clf_matrix)
         st.write(clf_matrix_df.T)    
@@ -110,7 +111,7 @@ def app():
         clf_rep = classification_report(y_test, y_pred2,output_dict = True)
         clf_rep_df = pd.DataFrame(clf_rep)
         st.write(clf_rep_df.T)
-
+        st.write("Matriz de confusion; 0 es Falsa y 1 es Verdadera")
         clf_matrix = confusion_matrix(y_test, y_pred2)
         clf_matrix_df = pd.DataFrame(clf_matrix)
         st.write(clf_matrix_df.T)  
@@ -120,6 +121,7 @@ def app():
         clf_rep = classification_report(y_test, y_pred3,output_dict = True)
         clf_rep_df = pd.DataFrame(clf_rep)
         st.write(clf_rep_df.T)
+        st.write("Matriz de confusion; 0 es Falsa y 1 es Verdadera")
         clf_matrix = confusion_matrix(y_test, y_pred3)
         clf_matrix_df = pd.DataFrame(clf_matrix)
         st.write(clf_matrix_df.T)  

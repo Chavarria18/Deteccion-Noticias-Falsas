@@ -26,14 +26,15 @@ def sentiment(cuerpo,titulo):
     
     
     ###Analisis sentimiento para el titulo 
+    
     if(titulo == ""):
         st.write("Porfavor introducir el titulo de la noticia")
     if(titulo != ""):
         try:
             titulotraducido = str(blobtitulo.translate(from_lang='es', to='en'))  
             analysistitulo = TextBlob(titulotraducido)
-            st.write("El analisis del sentimiento para el titulo:"+ str(analysistitulo.sentiment))
-            
+            st.write("El analisis del sentimiento para el titulo: \n"+ "Polaridad: " +str(analysistitulo.sentiment[0])+"\n" +"Subjetividad: "+"" +str(analysistitulo.sentiment[1] ))
+            st.write("Si ambos resltados muestran 0 signfica un analisis neutral")
         except:
             st.write("No se puedo analizar el sentimiento del titulo:" + str(blobtitulo))
 
@@ -46,8 +47,7 @@ def sentiment(cuerpo,titulo):
     
         analysis = TextBlob(cuerpotraducido)       
         st.write("El analisis del sentimiento para el contenido  fue:")
-        col1, col2 = st.columns(2)
-       
+        col1, col2 = st.columns(2)       
         col1.metric("Polaridad", str( round(analysis.sentiment[0],2)))
         col2.metric("Subjetividad",  str( round(analysis.sentiment[1] ,2)))
         col1, col2,col3 = st.columns(3)

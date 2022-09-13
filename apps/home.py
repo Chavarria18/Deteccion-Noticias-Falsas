@@ -20,9 +20,9 @@ def app():
     buton = st.button('ANALIZAR')
 
     if buton:
-        ##machine_analysis(cuerpo)
-        ##sentiment(cuerpo,titulo)
-        ##conteo(titulo,cuerpo)
+        machine_analysis(cuerpo)
+        sentiment(cuerpo,titulo)
+        conteo(titulo,cuerpo)
         tema(titulo,cuerpo)
   
 
