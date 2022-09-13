@@ -1,13 +1,11 @@
 import time
 from autocorrect import Speller 
-from spellchecker import SpellChecker
 import streamlit as st
 from pyrae import dle
 from textblob import TextBlob
 import os
 import re
-spell2 = SpellChecker(language="es")
-#aumentar el numero de palabras soeces
+
 
 
 def verificarpalabra(palabra):

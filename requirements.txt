@@ -8,3 +8,5 @@ sklearn == 0.0
 streamlit == 1.10.0
 autocorrect  == 2.6.1
 textblob == 0.17.1
+altair == 4.2.0
+sentiment_analysis_spanish == 0.0.25
