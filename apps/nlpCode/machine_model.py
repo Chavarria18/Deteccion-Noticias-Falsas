@@ -35,7 +35,7 @@ def machine_analysis(cuerpo):
     x_train,x_test,y_train,y_test=train_test_split(df['Text'].values.astype('str'), labels, test_size=0.20,train_size=0.80, random_state=0)
 
     ###Quitar las stopwords 
-    ###nltk.download('stopwords')
+    nltk.download('stopwords')
     tfidf_vectorizer = TfidfVectorizer(stop_words=stopwords.words("spanish"), max_df=0.7)
 
     ###se transforma en un conjutno de entrenamiento y pruebas
