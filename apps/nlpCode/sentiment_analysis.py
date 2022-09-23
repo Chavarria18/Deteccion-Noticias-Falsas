@@ -13,7 +13,7 @@ from annotated_text import annotated_text
 
 
 
-###nltk.download('punkt')
+nltk.download('punkt')
 nltk.download('vader_lexicon')
 def sentiment(cuerpo,titulo):
     
