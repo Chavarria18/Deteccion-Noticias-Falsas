@@ -19,7 +19,7 @@ def sentiment(cuerpo,titulo):
     
     #analisador = analyzer.SentimentAnalyzer(lang='es')
     analisador2 = se.SentimentAnalysisSpanish()
-    sia = SentimentIntensityAnalyzer()
+    ##sia = SentimentIntensityAnalyzer()
     blobcuerpo = TextBlob(cuerpo)
     blobtitulo = TextBlob(titulo)
     st.title("Resultado analisis del sentimiento")
