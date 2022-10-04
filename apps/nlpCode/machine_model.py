@@ -1,4 +1,3 @@
-
 from calendar import c
 import streamlit as st 
 import nltk
@@ -111,6 +110,19 @@ def machine_analysis(cuerpo):
     
     st.write("**Random Forest**")
     col1, col2 = st.columns(2)
+    """ 
+    labels = 'Verdadero', 'Falso'
+    sizes = [ round(randomforest.predict_proba(texto2)[:,0][0],2)*100 , 
+       round(randomforest.predict_proba(texto2)[:,1][0],2)*100]
+    explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
+    fig1, ax1 = plt.subplots()
+    ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+        shadow=True, startangle=90) 
+    """
+    #with col2:
+       # st.pyplot(fig1.figure)
+   
     col1.metric("Falsa", str( round(randomforest.predict_proba(texto2)[:,0][0],2)*100) +"%")
     col2.metric("verdadera", str( round(randomforest.predict_proba(texto2)[:,1][0],2)*100) +"%")
    

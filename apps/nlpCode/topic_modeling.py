@@ -23,8 +23,10 @@ def tema(titulo,cuerpo):
     col1, col2 = st.columns(2)
     with col1:
         st.image(wordcloud.to_array())
+        st.caption("Nube de palabras contenido")
     with col2:
         st.image(wordcloud2.to_array())  
+        st.caption("Nube de palabras titulo")
 
     ###----> Palabras del tema 
   

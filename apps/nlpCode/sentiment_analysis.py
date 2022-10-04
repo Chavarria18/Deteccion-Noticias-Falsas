@@ -33,8 +33,11 @@ def sentiment(cuerpo,titulo):
         try:
             titulotraducido = str(blobtitulo.translate(from_lang='es', to='en'))  
             analysistitulo = TextBlob(titulotraducido)
-            st.write("El analisis del sentimiento para el titulo: \n"+ "Polaridad: " +str(analysistitulo.sentiment[0])+"\n" +"Subjetividad: "+"" +str(analysistitulo.sentiment[1] ))
-            st.write("Si ambos resltados muestran 0 signfica un analisis neutral")
+            st.write("El analisis del sentimiento para el titulo: \n")
+            col1, col2 = st.columns(2)       
+            col1.metric("Polaridad", str( round(analysistitulo.sentiment[0],2)))
+            col2.metric("Subjetividad",  str( round(analysistitulo.sentiment[1] ,2)))
+            st.caption("---> Si ambos resltados muestran 0 signfica un analisis neutral")
         except:
             st.write("No se puedo analizar el sentimiento del titulo:" + str(blobtitulo))
 
@@ -46,16 +49,17 @@ def sentiment(cuerpo,titulo):
         cuerpotraducido = str(blobcuerpo.translate(from_lang='es', to='en'))     
     
         analysis = TextBlob(cuerpotraducido)       
-        st.write("El analisis del sentimiento para el contenido  fue:")
+        st.write("**El analisis del sentimiento para el contenido  fue:**")
         col1, col2 = st.columns(2)       
         col1.metric("Polaridad", str( round(analysis.sentiment[0],2)))
+        col1.caption("Valores de -1 a 1, mas cercano a 1 más sentimiento más positivo")
         col2.metric("Subjetividad",  str( round(analysis.sentiment[1] ,2)))
-        col1, col2,col3 = st.columns(3)
-        st.write("El analisis del sentimiento para el contenido  fue:")
-        col1.metric("% Negativo", str( round( (sia.polarity_scores(cuerpotraducido)['neg']*100), 2)) +"%")
-        col2.metric("% Positivo", str( round( (sia.polarity_scores(cuerpotraducido)['pos']*100), 2)) +"%")
-        col3.metric("% Compuesta", str( round( (sia.polarity_scores(cuerpotraducido)['compound']*100), 2) ) +"%")
-  
+        col2.caption("Valores de -1 a 1, mas cercano a 1 mas subjetivo")
+        col1, col2 = st.columns(2)
+        st.write("**El analisis del sentimiento para el contenido  fue:**")
+        col1.metric("% Negativo", str( round( (sia.polarity_scores(cuerpotraducido)['neg']), 2)) )
+        col2.metric("% Positivo", str( round( (sia.polarity_scores(cuerpotraducido)['pos']), 2)) )  
+        
 
 
      
