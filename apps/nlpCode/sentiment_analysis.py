@@ -38,7 +38,7 @@ def sentiment(cuerpo,titulo):
             col1.metric("Polaridad", str( round(analysistitulo.sentiment[0],2)))
             col1.caption("Valores de -1 a 1, más cercano a 1 más positivo")
             col2.metric("Subjetividad",  str( round(analysistitulo.sentiment[1] ,2)))
-            col1.caption("Valores de -1 a 1, más cercano a 1 más subjetivo")
+            col2.caption("Valores de -1 a 1, más cercano a 1 más subjetivo")
             st.caption("---> Si ambos resltados muestran 0 signfica un analisis neutral")
         except:
             st.write("No se puedo analizar el sentimiento del titulo:" + str(blobtitulo))
