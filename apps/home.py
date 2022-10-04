@@ -20,10 +20,25 @@ def app():
     buton = st.button('ANALIZAR')
 
     if buton:
-        machine_analysis(cuerpo)
-        sentiment(cuerpo,titulo)
-        conteo(titulo,cuerpo)
-        tema(titulo,cuerpo)
+        try:
+            machine_analysis(cuerpo)
+        except:
+            st.warning("Introduce otra noticia porfavor")
+        try:
+            sentiment(cuerpo,titulo)
+        except:
+            st.warning("Introduce otra noticia porfavor")
+        try:
+            conteo(titulo,cuerpo)
+        except:
+            st.warning("Introduce otra noticia porfavor")
+        try:
+            tema(titulo,cuerpo)
+        except:
+            st.warning("Introduce otra noticia porfavor")
+     
+       
+      
   
 
     

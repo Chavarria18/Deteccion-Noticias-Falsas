@@ -54,11 +54,13 @@ def sentiment(cuerpo,titulo):
         col1.metric("Polaridad", str( round(analysis.sentiment[0],2)))
         col1.caption("Valores de -1 a 1, mas cercano a 1 más sentimiento más positivo")
         col2.metric("Subjetividad",  str( round(analysis.sentiment[1] ,2)))
-        col2.caption("Valores de -1 a 1, mas cercano a 1 mas subjetivo")
+        col2.caption("Valores de -1 a 1, más cercano a 1 mas subjetivo")
         col1, col2 = st.columns(2)
         st.write("**El analisis del sentimiento para el contenido  fue:**")
-        col1.metric("% Negativo", str( round( (sia.polarity_scores(cuerpotraducido)['neg']), 2)) )
-        col2.metric("% Positivo", str( round( (sia.polarity_scores(cuerpotraducido)['pos']), 2)) )  
+        col1.metric("Negativo", str( round( (sia.polarity_scores(cuerpotraducido)['neg']), 2)) )
+        col1.caption("Valores de -1 a 1, más cercano a 1 más negativo")
+        col2.metric("Positivo", str( round( (sia.polarity_scores(cuerpotraducido)['pos']), 2)) )  
+        col2.caption("Valores de -1 a 1, más cercano a 1 más positivo")
         
 
 
