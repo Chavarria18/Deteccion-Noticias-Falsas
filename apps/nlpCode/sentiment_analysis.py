@@ -118,11 +118,11 @@ def sentiment(cuerpo,titulo):
         for x in cuerpo.split(" "):
             #st.write(x)
             #st.write(analisador2.sentiment(x))  
-            if(analisador2.sentiment(x) <0.1):
+            if(analisador2.sentiment(x) <0.1 and len(x)>3):
                 text_notas2.append((x+" ","Negativo "))
-            if(analisador2.sentiment(x) > 0.1 and analisador2.sentiment(x) <0.70):
+            if(analisador2.sentiment(x) > 0.1 and analisador2.sentiment(x) <0.70 and len(x)>3):
                 text_notas2.append((x+" "))
-            if(analisador2.sentiment(x) >0.8):
+            if(analisador2.sentiment(x) >0.8 and len(x)>3):
                 text_notas2.append((x+" ","Positivo "))
 
             
